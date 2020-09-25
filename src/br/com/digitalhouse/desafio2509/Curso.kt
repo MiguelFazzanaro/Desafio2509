@@ -4,10 +4,15 @@ import javax.swing.GroupLayout
 
 class Curso (val nome: String,
              val codigoCurso: Int,
-             val professorTitular: ProfessorTitular,
-             val professorAdjunto: ProfessorAdjunto,
-             val qtdMaximaAlunos: Int,
-             val alunos: MutableSet<Aluno> = mutableSetOf()) {
+             val qtdMaximaAlunos: Int) {
+
+    val alunos: MutableSet<Aluno> = mutableSetOf()
+//    val professorTitular: ProfessorTitular
+//    val professorAdjunto: ProfessorAdjunto
+
+    init{
+        println("Cadastrado o curso $nome com o Codigo $codigoCurso")
+    }
 
     override fun equals(other: Any?): Boolean {
         if (other == null || other != codigoCurso) {return true}

@@ -11,7 +11,7 @@ class DigitalHouseManager (val listaDeAlunos: List<Aluno>,
 
     }
 
-    fun excluirCurso(codigoCurso: Integer){
+    fun excluirCurso(codigoCurso: Int){
 
     }
     fun registrarProfessorTitular(nome: String,
@@ -46,6 +46,6 @@ class DigitalHouseManager (val listaDeAlunos: List<Aluno>,
     fun alocarProfessores(codigoCurso: Int,
                           codigoProfessorTitular:  Int,
                           codigoProfessorAdjunto:Int){
-        
+
     }
 }
