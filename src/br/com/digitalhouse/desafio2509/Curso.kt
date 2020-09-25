@@ -30,8 +30,7 @@ class Curso (val nome: String,
             alunos.remove(aluno)
             println("Aluno removido")
         } else {
-            println("Aluno nao matriculado")
+            println("Aluno não matriculado")
         }
-
     }
 }
