@@ -1,7 +1,5 @@
 package br.com.digitalhouse.desafio2509
 
-import javax.swing.GroupLayout
-
 class Curso (val nome: String,
              val codigoCurso: Int,
              val qtdMaximaAlunos: Int) {
@@ -22,10 +20,12 @@ class Curso (val nome: String,
     fun adicionarAluno (aluno: Aluno): Boolean {
         if (qtdMaximaAlunos == alunos.size) {
             println("Não é possivel adicionar aluno")
+            println(alunos)
             return false
         } else {
             println("Aluno cadastrado")
             alunos.add(aluno)
+            println(alunos)
             return true
         }
     }
