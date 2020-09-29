@@ -1,7 +1,5 @@
 package br.com.digitalhouse.desafio2509
 
-
-
 fun main() {
     val aluno1 = Aluno("José", "Silva", 1)
     val aluno2 = Aluno("João", "Santos", 2)
@@ -14,7 +12,6 @@ fun main() {
     val professor4 = Professor("Professor", "Xavier", 7, 4)
 
     val escola = DigitalHouseManager()
-
 
     val curso1 = Curso("Full Stack", 20001, 3)
     val curso2 = Curso("Android", 20002, 2)
@@ -29,7 +26,6 @@ fun main() {
     escola.registrarCurso(curso1.nome,curso1.codigoCurso,curso1.qtdMaximaAlunos)
     escola.registrarCurso(curso2.nome,curso2.codigoCurso,curso2.qtdMaximaAlunos)
     escola.excluirCurso(curso2.codigoCurso)
-
 
     escola.matricularAluno(aluno1.nome,aluno1.sobrenome,aluno1.codigoAluno)
     escola.matricularAluno(aluno2.nome,aluno2.sobrenome,aluno2.codigoAluno)
@@ -55,25 +51,7 @@ fun main() {
     escola.matricularCurso(4,20001)
     println(escola.listaDeMatriculas)
 
-
-
-
-
-
-//
-//    val matriculaAluno1 = Matricula(aluno1, curso1, "11-10-20")
-//    val matriculaAluno12 = Matricula(aluno1, curso2, "11-10-20")
-//    val matriculaAluno2 = Matricula(aluno2, curso2, "11-10-20")
-//    val matriculaAluno3 = Matricula(aluno3, curso1,"11-10-20" )
-//    val matriculaAluno4 = Matricula(aluno4, curso2, "11-10-20")
-//
-//    val escola = DigitalHouseManager(listOf(aluno1,aluno2,aluno3,aluno4),
-//            listOf(professor1,professor2,professor3,professor4),
-//            listOf(curso1,curso2),
-//            listOf(matriculaAluno1,matriculaAluno12,matriculaAluno2,matriculaAluno3,matriculaAluno4))
-
-
-
-
+    escola.alocarProfessores(20001,3,1)
+    escola.alocarProfessores(20002,4,2)
 
 }

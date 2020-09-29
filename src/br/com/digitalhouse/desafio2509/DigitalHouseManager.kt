@@ -65,7 +65,7 @@ class DigitalHouseManager () {
             println("Aluno e Curso encontrado")
             if ((listaDeCursos[codigoCurso]!!.get(1)).toInt() > listaDeMatriculas.size){
                 println("aluno matriculado")
-                listaDeMatriculas.add("$codigoAluno matriculado em $codigoCurso")
+                listaDeMatriculas.add("Aluno $codigoAluno matriculado em $codigoCurso")
             } else {
                 println("nao é possivel matricular devido a quantidade maxima de alunos")
             }
@@ -77,6 +77,11 @@ class DigitalHouseManager () {
     fun alocarProfessores(codigoCurso: Int,
                           codigoProfessorTitular:  Int,
                           codigoProfessorAdjunto: Int){
- 
+        if (listaDeProfessores.containsKey(codigoProfessorAdjunto) && listaDeProfessores.containsKey(codigoProfessorTitular)){
+            println("Professores localizados")
+            println(listaDeCursos)
+        } else {
+            println("professores nao localizados")
+        }
     }
 }

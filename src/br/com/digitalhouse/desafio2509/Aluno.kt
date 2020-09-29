@@ -12,5 +12,4 @@ data class Aluno (val nome: String,
         if (other == null || other != codigoAluno) {return true}
         return false
     }
-
 }
