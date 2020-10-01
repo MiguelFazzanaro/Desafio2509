@@ -46,9 +46,13 @@ fun main() {
     escola.matricularCurso(4,20002)
     //println(escola.listaDeMatriculas)
 
-   /* escola.alocarProfessores(20001,3,1)
+    escola.alocarProfessores(20001,3,1)
     escola.alocarProfessores(20002,4,2)
-    println(escola.listaDeCursos)*/
+    //println(curso1.professorAdjunto)
+    //println(curso1.professorTitular)
+    //println(curso2.professorAdjunto)
+    //println(curso2.professorTitular)
+
 
 
 }

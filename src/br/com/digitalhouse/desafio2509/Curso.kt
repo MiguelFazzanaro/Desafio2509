@@ -5,6 +5,8 @@ data class Curso(val nome: String,
                  val qtdMaximaAlunos: Int) {
 
     var alunos: MutableList<Aluno> = mutableListOf()
+    var professorTitular: ProfessorTitular? = null
+    var professorAdjunto: ProfessorAdjunto? = null
 
     fun adicionarAluno (aluno: Aluno): Boolean {
         if (alunos.size >= qtdMaximaAlunos) {

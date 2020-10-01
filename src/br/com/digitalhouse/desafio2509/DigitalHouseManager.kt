@@ -101,14 +101,33 @@ class DigitalHouseManager () {
         }
     }
 
-/*
     fun alocarProfessores(codigoCurso: Int,
                           codigoProfessorTitular:  Int,
-                          codigoProfessorAdjunto: Int){
-        if (listaDeProfessores.containsKey(codigoProfessorAdjunto) && listaDeProfessores.containsKey(codigoProfessorTitular)){
-            listaDeCursos[codigoCurso] = listOf(listaDeCursos[codigoCurso]!![0], listaDeCursos[codigoCurso]!![1], "Professor ${listaDeProfessores[codigoProfessorAdjunto]!![1]}(Adjunto)", "Professor ${listaDeProfessores[codigoProfessorTitular]!![1]} (Titular)")
-        } else {
-            println("professores nao localizados")
+                          codigoProfessorAdjunto: Int) {
+        var adj:Professor? = null
+        var tit:Professor? = null
+        var cursoProfessor: Curso? = null
+
+        for (professor in listaDeProfessores){
+            if (professor.codigoProfessor == codigoProfessorAdjunto){
+                adj = professor
+            }
         }
-    }*/
+
+        for (professor in listaDeProfessores){
+            if (professor.codigoProfessor == codigoProfessorTitular){
+                tit = professor
+            }
+        }
+
+        for (codigo in listaDeCursos){
+            if (codigo.codigoCurso == codigoCurso) {
+                cursoProfessor = codigo
+            }
+        }
+        println(tit)
+        println(adj)
+        cursoProfessor!!.professorAdjunto = adj as ProfessorAdjunto
+        cursoProfessor!!.professorTitular = tit as ProfessorTitular
+    }
 }
