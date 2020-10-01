@@ -1,10 +1,6 @@
 package br.com.digitalhouse.desafio2509
 
 fun main() {
-//    val aluno1 = Aluno("José", "Silva", 1)
-//    val aluno2 = Aluno("João", "Santos", 2)
-//    val aluno3 = Aluno("Marcos", "Silva", 3)
-//    val aluno4 = Aluno("Lucas", "Santos", 4)
 
     val professor1 = Professor("Professor", "Girafales", 4, 1)
     val professor2 = Professor("Professor", "Pasquale", 2, 2)
@@ -48,10 +44,11 @@ fun main() {
 
     escola.alocarProfessores(20001,3,1)
     escola.alocarProfessores(20002,4,2)
-    //println(curso1.professorAdjunto)
-    //println(curso1.professorTitular)
-    //println(curso2.professorAdjunto)
-    //println(curso2.professorTitular)
+//    println(curso1.professorAdjunto).toString()
+//    println(curso1.professorTitular).toString()
+//    println(curso2.professorAdjunto).toString()
+//    println(curso2.professorTitular).toString()
+    println(escola.listaDeProfessores).toString()
 
 
 

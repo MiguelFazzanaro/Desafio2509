@@ -1,5 +1,6 @@
 package br.com.digitalhouse.desafio2509
 
+import java.time.LocalDate
 
 class DigitalHouseManager () {
 
@@ -31,7 +32,6 @@ class DigitalHouseManager () {
                                   sobrenome: String,
                                   codigoProfessor: Int,
                                   especialidade: String){
-
         var professorTitular: ProfessorTitular = ProfessorTitular(nome,sobrenome, tempoCasa = 0, codigoProfessor, especialidade)
         listaDeProfessores.add (professorTitular)
         println("professor $sobrenome cadastrado como titular")
@@ -67,7 +67,6 @@ class DigitalHouseManager () {
 
     fun matricularCurso (codigoAluno: Int,
                          codigoCurso: Int) {
-
         var matriculaAluno: Aluno? = null
         var matriculaCurso: Curso? = null
         var quantidade = 1
@@ -93,7 +92,7 @@ class DigitalHouseManager () {
         }
 
         if (quantidade <= matriculaCurso!!.qtdMaximaAlunos){
-            var matricula = Matricula(matriculaAluno!!, matriculaCurso!!, "Hoje")
+            var matricula = Matricula(matriculaAluno!!, matriculaCurso!!, LocalDate.now())
             listaDeMatriculas.add(matricula)
             println("matricula realizada: ${matriculaAluno.nome} - ${matriculaCurso.nome}")
         } else {
