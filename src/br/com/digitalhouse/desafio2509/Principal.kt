@@ -16,7 +16,8 @@ fun main() {
     val curso1 = Curso("Full Stack", 20001, 3)
     val curso2 = Curso("Android", 20002, 2)
 
-    curso1.adicionarAluno(aluno1)
+
+    /*curso1.adicionarAluno(aluno1)
     curso2.adicionarAluno(aluno2)
     curso2.adicionarAluno(aluno3)
     curso2.adicionarAluno(aluno4)
@@ -26,17 +27,17 @@ fun main() {
     curso1.adicionarAluno(aluno3)
     curso1.adicionarAluno(aluno1)
     println(curso1.alunos)
-    println(curso2.alunos)
+    println(curso2.alunos)*/
 
     escola.registrarCurso(curso1.nome,curso1.codigoCurso,curso1.qtdMaximaAlunos)
     escola.registrarCurso(curso2.nome,curso2.codigoCurso,curso2.qtdMaximaAlunos)
     escola.excluirCurso(curso2.codigoCurso)
     escola.registrarCurso(curso2.nome,curso2.codigoCurso,curso2.qtdMaximaAlunos)
-    println(escola.listaDeCursos)
+    //println(escola.listaDeCursos)
 
 
 
-    escola.registrarProfessorAdjunto(professor1.nome, professor1.sobrenome, professor1.codigoProfessor, 8)
+   /* escola.registrarProfessorAdjunto(professor1.nome, professor1.sobrenome, professor1.codigoProfessor, 8)
     escola.registrarProfessorAdjunto(professor2.nome, professor2.sobrenome, professor2.codigoProfessor, 4)
     escola.registrarProfessorTitular(professor3.nome, professor3.sobrenome, professor3.codigoProfessor, "Android")
     escola.registrarProfessorTitular(professor4.nome, professor4.sobrenome, professor4.codigoProfessor, "Full Stack")
@@ -66,7 +67,7 @@ fun main() {
 
     escola.alocarProfessores(20001,3,1)
     escola.alocarProfessores(20002,4,2)
-    println(escola.listaDeCursos)
+    println(escola.listaDeCursos)*/
 
 
 }

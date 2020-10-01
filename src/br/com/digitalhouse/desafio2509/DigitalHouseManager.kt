@@ -2,29 +2,31 @@ package br.com.digitalhouse.desafio2509
 
 class DigitalHouseManager () {
 
-    var listaDeAlunos: MutableMap<Int, List<String>> = mutableMapOf()
-    var listaDeProfessores: MutableMap<Int, List<String>> = mutableMapOf()
-    var listaDeCursos: MutableMap<Int, List<String>> = mutableMapOf()
-    var listaDeMatriculas: MutableMap<Int, String> = mutableMapOf()
+    var listaDeAlunos: MutableList<Curso> = mutableListOf()
+    var listaDeProfessores: MutableList<Professor> = mutableListOf()
+    var listaDeCursos: MutableList<Curso> = mutableListOf()
+    var listaDeMatriculas: MutableList<Curso> = mutableListOf()
 
     fun registrarCurso(nome: String ,
                        codigoCurso: Int,
                        qtdMaximaAlunos: Int)  {
-        listaDeCursos.put(codigoCurso, listOf(nome, "$qtdMaximaAlunos"))
-        println("curso cadastrado")
+        var curso = Curso (nome, codigoCurso, qtdMaximaAlunos)
+        listaDeCursos.add(curso)
+        println("curso ${curso.nome} cadastrado")
     }
 
     fun excluirCurso(codigoCurso: Int){
-        if (listaDeCursos.containsKey(codigoCurso)){
-            listaDeCursos.remove(codigoCurso)
-            println("curso removido")
+        var cursoRemove: Curso? = null
+        for (curso in listaDeCursos){
+            if (curso.codigoCurso == codigoCurso){
+                cursoRemove = curso
+                println("removido o curso ${cursoRemove.nome}")
+            }
         }
-        else {
-            println("curso nao cadastrado")
-        }
+        listaDeCursos.remove(cursoRemove)
     }
 
-    fun registrarProfessorTitular(nome: String,
+    /*fun registrarProfessorTitular(nome: String,
                                   sobrenome: String,
                                   codigoProfessor: Int,
                                   especialidade: String){
@@ -49,9 +51,9 @@ class DigitalHouseManager () {
         else {
             println("professor nao cadastrado")
         }
-    }
+    }*/
 
-    fun matricularAluno(nome: String,
+    /*fun matricularAluno(nome: String,
                         sobrenome: String,
                         codigoAluno: Int){
         listaDeAlunos.put(codigoAluno, listOf(nome, sobrenome))
@@ -86,5 +88,5 @@ class DigitalHouseManager () {
         } else {
             println("professores nao localizados")
         }
-    }
+    }*/
 }

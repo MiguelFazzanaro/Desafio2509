@@ -1,19 +1,10 @@
 package br.com.digitalhouse.desafio2509
 
-class Curso(val nome: String,
+data class Curso(val nome: String,
                  val codigoCurso: Int,
                  val qtdMaximaAlunos: Int) {
 
     var alunos: MutableSet<Aluno> = mutableSetOf()
-
-    init{
-        println("Cadastrado o curso $nome com o Codigo $codigoCurso")
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (other == null || other != codigoCurso) {return true}
-        return false
-    }
 
     fun adicionarAluno (aluno: Aluno): Boolean {
         if (alunos.size >= qtdMaximaAlunos) {
