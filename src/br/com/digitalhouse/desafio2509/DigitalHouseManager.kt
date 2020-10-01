@@ -5,11 +5,11 @@ class DigitalHouseManager () {
     var listaDeAlunos: MutableMap<Int, List<String>> = mutableMapOf()
     var listaDeProfessores: MutableMap<Int, List<String>> = mutableMapOf()
     var listaDeCursos: MutableMap<Int, List<String>> = mutableMapOf()
-    var listaDeMatriculas: MutableList<String> = mutableListOf()
+    var listaDeMatriculas: MutableMap<Int, String> = mutableMapOf()
 
-    fun registrarCurso(nome: String,
+    fun registrarCurso(nome: String ,
                        codigoCurso: Int,
-                       qtdMaximaAlunos: Int){
+                       qtdMaximaAlunos: Int)  {
         listaDeCursos.put(codigoCurso, listOf(nome, "$qtdMaximaAlunos"))
         println("curso cadastrado")
     }
@@ -60,17 +60,21 @@ class DigitalHouseManager () {
     }
 
     fun matricularCurso (codigoAluno: Int,
-                         codigoCurso: Int){
-        if (listaDeAlunos.containsKey(codigoAluno) && listaDeCursos.containsKey(codigoCurso)){
-            println("Aluno e Curso encontrado")
-            if ((listaDeCursos[codigoCurso]!!.get(1)).toInt() > listaDeMatriculas.size){
-                println("aluno matriculado")
-                listaDeMatriculas.add("Aluno $codigoAluno matriculado em $codigoCurso")
+                         codigoCurso: Int) {
+        var cont = 1
+        var a: Curso? = null
+        if (listaDeAlunos.containsKey(codigoAluno) && listaDeCursos.containsKey(codigoCurso)) {
+            for (a in listaDeMatriculas.keys) {
+                cont++
+                println(cont)
+            }
+            if (cont <= listaDeCursos[codigoCurso]!![1].toInt()) {
+                listaDeMatriculas.put(codigoCurso, "Aluno $codigoAluno ${listaDeAlunos[codigoAluno]!![0]} matriculado no curso ${listaDeCursos[codigoCurso]!![0]}")
             } else {
-                println("nao é possivel matricular devido a quantidade maxima de alunos")
+                println("nao foi possivel matricular pois o curso esta lotado")
             }
         } else {
-            println("aluno e/ou curso nao encontrados")
+            println("aluno e/ou curso nao localizados")
         }
     }
 
@@ -78,8 +82,7 @@ class DigitalHouseManager () {
                           codigoProfessorTitular:  Int,
                           codigoProfessorAdjunto: Int){
         if (listaDeProfessores.containsKey(codigoProfessorAdjunto) && listaDeProfessores.containsKey(codigoProfessorTitular)){
-            println("Professores localizados")
-            println(listaDeCursos)
+            listaDeCursos[codigoCurso] = listOf(listaDeCursos[codigoCurso]!![0], listaDeCursos[codigoCurso]!![1], "Professor ${listaDeProfessores[codigoProfessorAdjunto]!![1]}(Adjunto)", "Professor ${listaDeProfessores[codigoProfessorTitular]!![1]} (Titular)")
         } else {
             println("professores nao localizados")
         }
