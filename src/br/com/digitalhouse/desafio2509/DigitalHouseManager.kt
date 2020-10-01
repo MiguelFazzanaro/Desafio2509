@@ -1,11 +1,12 @@
 package br.com.digitalhouse.desafio2509
 
+
 class DigitalHouseManager () {
 
-    var listaDeAlunos: MutableList<Curso> = mutableListOf()
+    var listaDeAlunos: MutableList<Aluno> = mutableListOf()
     var listaDeProfessores: MutableList<Professor> = mutableListOf()
     var listaDeCursos: MutableList<Curso> = mutableListOf()
-    var listaDeMatriculas: MutableList<Curso> = mutableListOf()
+    var listaDeMatriculas: MutableList<Matricula> = mutableListOf()
 
     fun registrarCurso(nome: String ,
                        codigoCurso: Int,
@@ -26,60 +27,81 @@ class DigitalHouseManager () {
         listaDeCursos.remove(cursoRemove)
     }
 
-    /*fun registrarProfessorTitular(nome: String,
+    fun registrarProfessorTitular(nome: String,
                                   sobrenome: String,
                                   codigoProfessor: Int,
                                   especialidade: String){
 
-        listaDeProfessores.put(codigoProfessor, listOf(nome,sobrenome,"Professor Titular $especialidade"))
-        println("professor titular cadastrado")
+        var professorTitular: ProfessorTitular = ProfessorTitular(nome,sobrenome, tempoCasa = 0, codigoProfessor, especialidade)
+        listaDeProfessores.add (professorTitular)
+        println("professor $sobrenome cadastrado como titular")
     }
 
     fun registrarProfessorAdjunto(nome: String,
                                   sobrenome: String,
                                   codigoProfessor: Int,
                                   monitoria: Int){
-        listaDeProfessores.put(codigoProfessor, listOf(nome, sobrenome, "Professor Adjunto monitoria $monitoria horas"))
-        println("professor adjunto cadastrado")
+        var professorAdjunto: ProfessorAdjunto = ProfessorAdjunto(nome,sobrenome, tempoCasa = 0, codigoProfessor, monitoria)
+        listaDeProfessores.add (professorAdjunto)
+        println("professor $sobrenome cadastrado como adjunto")
     }
 
     fun excluirProfessor(codigoProfessor: Int){
-        if (listaDeProfessores.containsKey(codigoProfessor)){
-            listaDeProfessores.remove(codigoProfessor)
-            println("professor removido")
+        var professorRemove: Professor? = null
+        for (professor in listaDeProfessores){
+            if (professor.codigoProfessor == codigoProfessor){
+                professorRemove = professor
+                println("removido o professor ${professorRemove.sobrenome}")
+            }
         }
-        else {
-            println("professor nao cadastrado")
-        }
-    }*/
+        listaDeProfessores.remove(professorRemove)
+    }
 
-    /*fun matricularAluno(nome: String,
+    fun matricularAluno(nome: String,
                         sobrenome: String,
                         codigoAluno: Int){
-        listaDeAlunos.put(codigoAluno, listOf(nome, sobrenome))
-        println("aluno cadastrado")
-        println(listaDeAlunos)
+        var aluno = Aluno (nome, sobrenome, codigoAluno)
+        listaDeAlunos.add(aluno)
+        println("aluno ${aluno.nome} ${aluno.sobrenome} matriculado na escola pelo RA ${aluno.codigoAluno}")
     }
 
     fun matricularCurso (codigoAluno: Int,
                          codigoCurso: Int) {
-        var cont = 1
-        var a: Curso? = null
-        if (listaDeAlunos.containsKey(codigoAluno) && listaDeCursos.containsKey(codigoCurso)) {
-            for (a in listaDeMatriculas.keys) {
-                cont++
-                println(cont)
+
+        var matriculaAluno: Aluno? = null
+        var matriculaCurso: Curso? = null
+        var quantidade = 1
+
+        for (aluno in listaDeAlunos) {
+            if (aluno.codigoAluno == codigoAluno) {
+                matriculaAluno = aluno
+                println("aluno ${aluno.nome} ${aluno.sobrenome} localizado")
             }
-            if (cont <= listaDeCursos[codigoCurso]!![1].toInt()) {
-                listaDeMatriculas.put(codigoCurso, "Aluno $codigoAluno ${listaDeAlunos[codigoAluno]!![0]} matriculado no curso ${listaDeCursos[codigoCurso]!![0]}")
-            } else {
-                println("nao foi possivel matricular pois o curso esta lotado")
+        }
+
+        for (curso in listaDeCursos) {
+            if (curso.codigoCurso == codigoCurso) {
+                matriculaCurso = curso
+                println("curso ${curso.nome} localizado")
             }
+        }
+
+        for (qtd in listaDeMatriculas){
+            if(qtd.curso.codigoCurso == codigoCurso) {
+                quantidade++
+            }
+        }
+
+        if (quantidade <= matriculaCurso!!.qtdMaximaAlunos){
+            var matricula = Matricula(matriculaAluno!!, matriculaCurso!!, "Hoje")
+            listaDeMatriculas.add(matricula)
+            println("matricula realizada: ${matriculaAluno.nome} - ${matriculaCurso.nome}")
         } else {
-            println("aluno e/ou curso nao localizados")
+            println("matricula nao realizada")
         }
     }
 
+/*
     fun alocarProfessores(codigoCurso: Int,
                           codigoProfessorTitular:  Int,
                           codigoProfessorAdjunto: Int){

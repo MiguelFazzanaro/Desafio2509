@@ -4,7 +4,7 @@ data class Curso(val nome: String,
                  val codigoCurso: Int,
                  val qtdMaximaAlunos: Int) {
 
-    var alunos: MutableSet<Aluno> = mutableSetOf()
+    var alunos: MutableList<Aluno> = mutableListOf()
 
     fun adicionarAluno (aluno: Aluno): Boolean {
         if (alunos.size >= qtdMaximaAlunos) {
@@ -12,7 +12,7 @@ data class Curso(val nome: String,
             println(alunos)
             return false
         } else {
-            println("Aluno ${aluno.nome} cadastrado no curso ${this.nome}")
+            println("Aluno ${aluno.nome} cadastrado no curso")
             alunos.add(aluno)
             println(alunos)
             return true
@@ -22,7 +22,7 @@ data class Curso(val nome: String,
     fun excluirAluno (aluno: Aluno) {
         if (alunos.contains(aluno)){
             alunos.remove(aluno)
-            println("Aluno ${aluno.nome} removido do curso de ${this.nome}")
+            println("Aluno ${aluno.nome} removido do curso")
         } else {
             println("Aluno não matriculado")
         }
