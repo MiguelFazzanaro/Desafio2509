@@ -2,11 +2,12 @@ package br.com.digitalhouse.desafio2509
 
 data class Curso(val nome: String,
                  val codigoCurso: Int,
-                 val qtdMaximaAlunos: Int) {
+                 val qtdMaximaAlunos: Int,
+                 var profTitular: ProfessorTitular?,
+                 var profAdjunto: ProfessorAdjunto?) {
 
     var alunos: MutableList<Aluno> = mutableListOf()
-    var professorTitular: ProfessorTitular? = null
-    var professorAdjunto: ProfessorAdjunto? = null
+
 
     fun adicionarAluno (aluno: Aluno): Boolean {
         if (alunos.size >= qtdMaximaAlunos) {
